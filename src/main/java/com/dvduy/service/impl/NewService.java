@@ -36,8 +36,10 @@ public class NewService implements INewService{
 
 	}
 
-	public void delete(NewsModel newsModel) {
-		newDAO.delete(newsModel);
+	public void delete(Long[] ids) {
+		for (Long id : ids) {
+			newDAO.delete(id);
+		}
 	}
 
 }

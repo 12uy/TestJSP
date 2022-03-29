@@ -8,5 +8,5 @@ public interface INewService {
 	public List<NewsModel> findCategoryByID(Long categoryID);
 	public NewsModel save(NewsModel newsModel);
 	public NewsModel update(NewsModel updateNewsModel);
-	public void delete(NewsModel newsModel);
+	public void delete(Long[] ids);
 }

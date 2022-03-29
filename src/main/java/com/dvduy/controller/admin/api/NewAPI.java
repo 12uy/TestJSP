@@ -47,7 +47,11 @@ public class NewAPI extends HttpServlet {
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doDelete(req, resp);
+        ObjectMapper mapper = new ObjectMapper();
+        resp.setContentType("application/json");
+        NewsModel deleteNews = HttpUtil.of(req.getReader()).toModel(NewsModel.class);
+        newService.delete(deleteNews.getIds());
+        mapper.writeValue(resp.getOutputStream(), "delete success");
     }
 
 

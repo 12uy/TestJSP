@@ -39,10 +39,11 @@ public class NewDAO extends AbstractDAO<NewsModel> implements INewDAO{
 		update(sql.toString(), updateNews.getTitle(), updateNews.getThumbnail(), updateNews.getShortDescription(), updateNews.getContent(), updateNews.getCategoryId(), updateNews.getCreatedDate(), updateNews.getCreatedBy(),updateNews.getModifiedDate(),updateNews.getModifiedBy(),  updateNews.getId());
 	}
 
+
 	@Override
-	public void delete(NewsModel newsModel) {
+	public void delete(Long id) {
 		String sql = "Delete from news where id = ?";
-		update(sql, newsModel.getId());
+		update(sql, id);
 	}
 
 
