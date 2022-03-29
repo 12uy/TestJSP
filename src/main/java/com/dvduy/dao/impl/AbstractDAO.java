@@ -177,6 +177,10 @@ public class AbstractDAO<E> implements GenericDAO<E>{
                         statement.setString(index, (String) parameter);
                     } else if (parameter instanceof Timestamp) {
                         statement.setTimestamp(index, (Timestamp) parameter);
+                    } else if (parameter == null) {
+                        statement.setNull(index, Types.NULL);
+                    } else if (parameter.equals("")) {
+                        statement.setNull(index, Types.NULL);
                     }
                 } catch (SQLException e) {
                     // TODO Auto-generated catch block

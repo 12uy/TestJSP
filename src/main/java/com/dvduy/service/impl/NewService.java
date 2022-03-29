@@ -27,8 +27,13 @@ public class NewService implements INewService{
 	}
 
 	@Override
-	public void update(NewsModel newsModel) {
-		newDAO.update(newsModel);
+	public NewsModel update(NewsModel updatedNewsModel) {
+		NewsModel oldNewsModel = newDAO.findById(updatedNewsModel.getId()); // get old news
+		updatedNewsModel.setCreatedDate(oldNewsModel.getCreatedDate());
+		updatedNewsModel.setCreatedBy(oldNewsModel.getCreatedBy());
+		newDAO.update(updatedNewsModel);
+		return newDAO.findById(updatedNewsModel.getId());
+
 	}
 
 	public void delete(NewsModel newsModel) {
