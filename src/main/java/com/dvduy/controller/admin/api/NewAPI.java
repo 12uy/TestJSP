@@ -27,11 +27,10 @@ public class NewAPI extends HttpServlet {
 	@Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json");
-        PrintWriter out = resp.getWriter();
-        out.print("NewAPI");
         NewsModel newsModel = HttpUtil.of(req.getReader()).toModel(NewsModel.class); ////convert json to model
-        newService.save(newsModel);
-        out.print(newsModel.toString());
+        newsModel = newService.save(newsModel);
+        System.out.println(newsModel);
+
 
     }
 
