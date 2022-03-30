@@ -1,5 +1,6 @@
 package com.dvduy.service.impl;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -22,6 +23,8 @@ public class NewService implements INewService{
 
 	@Override
 	public NewsModel save(NewsModel newsModel) {
+		newsModel.setCreatedDate(new Timestamp(System.currentTimeMillis()));
+		newsModel.setCreatedBy("admin");
 		Long newsID = newDAO.save(newsModel);
 		return newDAO.findById(newsID);
 	}
@@ -31,6 +34,8 @@ public class NewService implements INewService{
 		NewsModel oldNewsModel = newDAO.findById(updatedNewsModel.getId()); // get old news
 		updatedNewsModel.setCreatedDate(oldNewsModel.getCreatedDate());
 		updatedNewsModel.setCreatedBy(oldNewsModel.getCreatedBy());
+		updatedNewsModel.setModifiedDate(new Timestamp(System.currentTimeMillis()));
+		updatedNewsModel.setModifiedBy("admin");
 		newDAO.update(updatedNewsModel);
 		return newDAO.findById(updatedNewsModel.getId());
 

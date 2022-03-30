@@ -27,16 +27,16 @@ public class NewDAO extends AbstractDAO<NewsModel> implements INewDAO{
 
 	@Override
 	public Long save(NewsModel newsModel) {
-		String sql = "Insert into news(title, content, categoryid) values(?,?,?)";
-		return insert(sql, newsModel.getTitle(), newsModel.getContent(), newsModel.getCategoryId());
+		String sql = "Insert into news(title, content, categoryid,thumbnail, shortdescription, createddate, modifieddate, createdby, modifiedby ) values(?,?,?,?,?,?,?,?,?)";
+		return insert(sql, newsModel.getTitle(), newsModel.getContent(), newsModel.getCategoryId(), newsModel.getThumbnail(), newsModel.getShortDescription(), newsModel.getCreatedDate(), newsModel.getModifiedDate(), newsModel.getCreatedBy(), newsModel.getModifiedBy());
 	}
 
 	@Override
 	public void update(NewsModel updateNews) {
 		StringBuilder sql = new StringBuilder("UPDATE news SET title = ?, thumbnail = ?,");
-		sql.append(" shortdescription = ?, content = ?, categoryid = ?,");
-		sql.append(" createddate = ?, createdby = ?, modifieddate = ?, modifiedby = ? WHERE id = ?");
-		update(sql.toString(), updateNews.getTitle(), updateNews.getThumbnail(), updateNews.getShortDescription(), updateNews.getContent(), updateNews.getCategoryId(), updateNews.getCreatedDate(), updateNews.getCreatedBy(),updateNews.getModifiedDate(),updateNews.getModifiedBy(),  updateNews.getId());
+		sql.append(" shortdescription = ?, content = ?, categoryid = ?");
+		sql.append(" ,createddate =? , modifieddate= ?, createdby =?, modifiedby =? WHERE id = ?");
+		update(sql.toString(), updateNews.getTitle(), updateNews.getThumbnail(), updateNews.getShortDescription(), updateNews.getContent(), updateNews.getCategoryId(), updateNews.getCreatedDate(),updateNews.getModifiedDate(), updateNews.getCreatedBy(), updateNews.getModifiedBy() ,  updateNews.getId());
 	}
 
 

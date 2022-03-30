@@ -54,5 +54,4 @@ public class NewAPI extends HttpServlet {
         mapper.writeValue(resp.getOutputStream(), "delete success");
     }
 
-
 }

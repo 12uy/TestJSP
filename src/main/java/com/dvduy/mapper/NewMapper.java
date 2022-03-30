@@ -15,6 +15,14 @@ public class NewMapper implements RowMapper<NewsModel>{
 			news.setTitle(resultSet.getString("title"));
 			news.setContent(resultSet.getString("content"));
 			news.setCategoryId(resultSet.getLong("categoryid"));
+			news.setThumbnail(resultSet.getString("thumbnail"));
+			news.setCreatedDate(resultSet.getTimestamp("createddate"));
+			news.setModifiedDate(resultSet.getTimestamp("modifieddate"));
+			news.setShortDescription(resultSet.getString("shortdescription"));
+			news.setModifiedBy(resultSet.getString("modifiedby"));
+			news.setCreatedBy(resultSet.getString("createdby"));
+
+
 			return news;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
