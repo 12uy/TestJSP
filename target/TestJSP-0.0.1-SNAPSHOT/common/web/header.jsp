@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -7,18 +9,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#home">Start Bootstrap</a>
+                <a class="navbar-brand" href="#">Trang Chủ</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="#about">About</a>
-                    </li>
-                    <li><a href="#services">Services</a>
-                    </li>
-                    <li><a href="#contact">Contact</a>
-                    </li>
+                    <c:if test="${!empty USERMODEL}">
+                        <li><a href=" ">Wellcome, ${USERMODEL.fullName}</a></li>
+                        <li><a href="<c:url value="/logout?action=logout"/>">Đăng Xuất</a></li>
+                    </c:if>
+                    <c:if test="${empty USERMODEL}">
+                        <li><a href="<c:url value="/login?action=login"/>">Đăng Nhập</a></li>
+                    </c:if>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

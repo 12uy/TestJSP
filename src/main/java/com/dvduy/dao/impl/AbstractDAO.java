@@ -3,6 +3,7 @@ package com.dvduy.dao.impl;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import com.dvduy.dao.GenericDAO;
 import com.dvduy.mapper.RowMapper;
@@ -10,9 +11,10 @@ import com.dvduy.mapper.RowMapper;
 public class AbstractDAO<E> implements GenericDAO<E>{
     public Connection getConnection() {
 
-        String url = "jdbc:mysql://localhost:3306/jspservletjdbc";
-        String user = "root";
-        String password = "";
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("db");
+        String url = resourceBundle.getString("url");
+        String user = resourceBundle.getString("user");
+        String password = resourceBundle.getString("password");
         try {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             return DriverManager.getConnection(url, user, password);

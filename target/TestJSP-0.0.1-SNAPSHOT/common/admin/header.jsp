@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@include file="/common/taglib.jsp" %>
 <div id="navbar" class="navbar navbar-default">
 			<script type="text/javascript">
 				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
@@ -186,7 +188,7 @@
 									<ul class="dropdown-menu dropdown-navbar">
 										<li>
 											<a href="#" class="clearfix">
-												<img src="assets/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
+												<img src="/template/admin/assets/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Alex:</span>
@@ -203,7 +205,7 @@
 
 										<li>
 											<a href="#" class="clearfix">
-												<img src="assets/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
+												<img src="/template/admin/assets/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Susan:</span>
@@ -220,7 +222,7 @@
 
 										<li>
 											<a href="#" class="clearfix">
-												<img src="assets/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
+												<img src="/template/admin/assets/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Bob:</span>
@@ -237,7 +239,7 @@
 
 										<li>
 											<a href="#" class="clearfix">
-												<img src="assets/avatars/avatar2.png" class="msg-photo" alt="Kate's Avatar" />
+												<img src="/template/admin/assets/avatars/avatar2.png" class="msg-photo" alt="Kate's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Kate:</span>
@@ -254,7 +256,7 @@
 
 										<li>
 											<a href="#" class="clearfix">
-												<img src="assets/avatars/avatar5.png" class="msg-photo" alt="Fred's Avatar" />
+												<img src="/template/admin/assets/avatars/avatar5.png" class="msg-photo" alt="Fred's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Fred:</span>
@@ -281,40 +283,10 @@
 						</li>
 
 						<li class="light-blue">
-							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="assets/avatars/user.jpg" alt="Jason's Photo" />
-								<span class="user-info">
-									<small>Welcome,</small>
-									Duy
-								</span>
-
-								<i class="ace-icon fa fa-caret-down"></i>
-							</a>
-
-							<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-								<li>
-									<a href="#">
-										<i class="ace-icon fa fa-cog"></i>
-										Settings
-									</a>
-								</li>
-
-								<li>
-									<a href="profile.html">
-										<i class="ace-icon fa fa-user"></i>
-										Profile
-									</a>
-								</li>
-
-								<li class="divider"></li>
-
-								<li>
-									<a href="#">
-										<i class="ace-icon fa fa-power-off"></i>
-										Logout
-									</a>
-								</li>
-							</ul>
+							<div>
+								<li><a href=" ">Wellcome, ${USERMODEL.fullName}</a></li>
+								<li><a href="<c:url value="/logout?action=logout"/>">Đăng Xuất</a></li>
+							</div>
 						</li>
 					</ul>
 				</div>

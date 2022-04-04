@@ -6,7 +6,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.InvocationTargetException;
 
-public class FormUtil {
+public class FormUtil { // dùng để lấy dữ liệu từ form gửi lên server
     public static  <T> T toModel(Class<T> tClass, HttpServletRequest request) {
         T getParam = null;
         try {
