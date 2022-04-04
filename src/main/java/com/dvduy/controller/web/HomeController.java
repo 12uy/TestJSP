@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dvduy.model.NewsModel;
 import com.dvduy.service.ICategoryService;
-import com.dvduy.service.INewService;
+import com.dvduy.service.INewsService;
 
 @WebServlet(urlPatterns = {"/trang-chu"})
 public class HomeController extends HttpServlet{
@@ -21,7 +20,7 @@ public class HomeController extends HttpServlet{
 	private ICategoryService categoryService;
 
 	@Inject
-	private INewService newService;
+	private INewsService newService;
 
 
 	

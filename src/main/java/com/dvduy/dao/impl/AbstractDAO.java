@@ -162,6 +162,53 @@ public class AbstractDAO<E> implements GenericDAO<E>{
         return id;
     }
 
+    @Override
+    public int count(String sql, Object... parameters) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            int count = 0;
+            connection = getConnection();
+            statement = connection.prepareStatement(sql);
+            setParameter(statement,parameters); // gán các tham số cho câu lệnh
+            resultSet = statement.executeQuery(); // thực thi câu lệnh
+            while (resultSet.next()) {
+                count = resultSet.getInt(1);
+            }
+            return count;
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return 0;
+        }finally {
+            if (connection!=null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+            if (statement!=null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+            if (resultSet!=null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
 
     private void setParameter(PreparedStatement statement, Object... parameters) {

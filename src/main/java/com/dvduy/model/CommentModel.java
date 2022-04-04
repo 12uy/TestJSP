@@ -1,6 +1,6 @@
 package com.dvduy.model;
 
-public class CommentModel {
+public class CommentModel extends AbstractModel<CommentModel> {
 	private String content;
 	private Long userId;
 	private Long newId;

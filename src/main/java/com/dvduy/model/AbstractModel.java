@@ -1,14 +1,79 @@
 package com.dvduy.model;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
-public class AbstractModel {
+public class AbstractModel<T> {
 	private Long id;
 	private Timestamp createdDate;
 	private Timestamp modifiedDate;
 	private String createdBy;
 	private String modifiedBy;
 	private Long[] ids;
+	private List<T> listResult = new ArrayList<>();
+	private int page;
+	private int maxItemInPage;
+	private int totalItem;
+	private int totalPage;
+	private String sortBy;
+	private String sortType;
+
+	public String getSortBy() {
+		return sortBy;
+	}
+
+	public void setSortBy(String sortBy) {
+		this.sortBy = sortBy;
+	}
+
+	public String getSortType() {
+		return sortType;
+	}
+
+	public void setSortType(String sortType) {
+		this.sortType = sortType;
+	}
+
+	public int getTotalPage() {
+		return totalPage;
+	}
+
+	public void setTotalPage(int totalPage) {
+		this.totalPage = totalPage;
+	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public int getMaxItemInPage() {
+		return maxItemInPage;
+	}
+
+	public void setMaxItemInPage(int maxItemInPage) {
+		this.maxItemInPage = maxItemInPage;
+	}
+
+	public int getTotalItem() {
+		return totalItem;
+	}
+
+	public void setTotalItem(int totalItem) {
+		this.totalItem = totalItem;
+	}
+
+	public List<T> getListResult() {
+		return listResult;
+	}
+
+	public void setListResult(List<T> listResult) {
+		this.listResult = listResult;
+	}
 
 	public Long[] getIds() {
 		return ids;

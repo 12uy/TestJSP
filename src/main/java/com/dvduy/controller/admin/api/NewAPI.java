@@ -1,7 +1,7 @@
 package com.dvduy.controller.admin.api;
 
 import com.dvduy.model.NewsModel;
-import com.dvduy.service.INewService;
+import com.dvduy.service.INewsService;
 import com.dvduy.utils.HttpUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet(urlPatterns = {"/api-admin-new"})
 public class NewAPI extends HttpServlet {
@@ -22,7 +21,7 @@ public class NewAPI extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     @Inject
-    private INewService newService;
+    private INewsService newService;
 
 
 	@Override

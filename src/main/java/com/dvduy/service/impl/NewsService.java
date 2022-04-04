@@ -7,9 +7,10 @@ import javax.inject.Inject;
 
 import com.dvduy.dao.INewDAO;
 import com.dvduy.model.NewsModel;
-import com.dvduy.service.INewService;
+import com.dvduy.paging.Pageble;
+import com.dvduy.service.INewsService;
 
-public class NewService implements INewService{
+public class NewsService implements INewsService {
 
 	
 	@Inject
@@ -45,6 +46,18 @@ public class NewService implements INewService{
 		for (Long id : ids) {
 			newDAO.delete(id);
 		}
+	}
+
+
+
+	@Override
+	public List<NewsModel> findAll(Pageble pageble) {
+		return newDAO.findAll(pageble);
+	}
+
+	@Override
+	public int getTotalItem() {
+		return newDAO.getTotalItem();
 	}
 
 }

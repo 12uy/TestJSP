@@ -5,6 +5,7 @@ import java.util.List;
 import com.dvduy.dao.INewDAO;
 import com.dvduy.mapper.NewMapper;
 import com.dvduy.model.NewsModel;
+import com.dvduy.paging.Pageble;
 
 public class NewDAO extends AbstractDAO<NewsModel> implements INewDAO{
 
@@ -44,6 +45,26 @@ public class NewDAO extends AbstractDAO<NewsModel> implements INewDAO{
 	public void delete(Long id) {
 		String sql = "Delete from news where id = ?";
 		update(sql, id);
+	}
+
+	@Override
+	public List<NewsModel> findAll(Pageble pageble) {
+		StringBuilder sql = new StringBuilder("Select * from news");
+		if (pageble.getSorter() != null) {
+			sql.append(" order by " + pageble.getSorter().getSortBy() + " " + pageble.getSorter().getSortType());
+		}
+		if (pageble.getOffset() != null && pageble.getLimit() != null) {
+			sql.append(" limit ?,?");
+			return query(sql.toString(), new NewMapper(), pageble.getOffset(), pageble.getLimit());
+		}
+		else
+			return query(sql.toString(), new NewMapper());
+	}
+
+	@Override
+	public int getTotalItem() {
+		String sql = "Select count(*) from news";
+		return count(sql);
 	}
 
 
