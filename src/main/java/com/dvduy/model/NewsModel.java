@@ -7,7 +7,15 @@ public class NewsModel extends AbstractModel<NewsModel> {
 	private String content;
 	private Long categoryId;
 	private String categoryCode;
+	private String categoryName;
 
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
 
 	public NewsModel(String title, String content, Long categoryId) {
 		this.title = title;

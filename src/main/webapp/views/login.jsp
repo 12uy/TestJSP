@@ -25,9 +25,12 @@
                 </div>
             </div>
             <div class="card-body">
-                <div class="alert alert-<%= request.getAttribute("alert") %>" role="alert">
-                    <%= request.getAttribute("message") %>
-                </div>
+            </div>
+                <c:if test="${!empty(message)}">
+                    <div class="alert alert-danger">
+                            ${message}
+                    </div>
+                </c:if>
                 <form action="<c:url value="/login"/> " id="formLogin" method="post">
                     <div class="input-group form-group">
                         <div class="input-group-prepend">

@@ -2,6 +2,7 @@ package com.dvduy.dao;
 
 import java.util.List;
 
+import com.dvduy.model.CategoryModel;
 import com.dvduy.model.NewsModel;
 import com.dvduy.paging.Pageble;
 

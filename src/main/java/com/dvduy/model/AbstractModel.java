@@ -19,6 +19,15 @@ public class AbstractModel<T> {
 	private String sortBy;
 	private String sortType;
 	private Long roleId;
+	private String type;
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	public Long getRoleId() {
 		return roleId;

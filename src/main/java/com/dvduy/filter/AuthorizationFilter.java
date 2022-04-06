@@ -25,7 +25,7 @@ public class AuthorizationFilter implements Filter {
         if(requestURI.startsWith("/admin")){
             UserModel user = (UserModel) SessionUtil.getInstance().getValue(httpRequest, "USERMODEL");
             if(user != null){
-                if (user.getRole().equals("ADMIN")){
+                if (user.getRole().getName().equals("ADMIN")){
                     chain.doFilter(request, response);
                 } else{
                     httpResponse.sendRedirect(httpRequest.getContextPath() + "/login?action=login&message=not_permission&alert=danger");

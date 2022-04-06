@@ -12,4 +12,6 @@ public interface INewsService {
 	public void delete(Long[] ids);
 	List<NewsModel> findAll(Pageble pageble);
 	int getTotalItem();
+	NewsModel findById(Long id);
+
 }
