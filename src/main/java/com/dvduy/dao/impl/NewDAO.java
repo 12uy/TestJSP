@@ -6,6 +6,7 @@ import com.dvduy.dao.INewDAO;
 import com.dvduy.mapper.NewMapper;
 import com.dvduy.model.NewsModel;
 import com.dvduy.paging.Pageble;
+import org.apache.commons.lang3.StringUtils;
 
 public class NewDAO extends AbstractDAO<NewsModel> implements INewDAO{
 
@@ -50,7 +51,7 @@ public class NewDAO extends AbstractDAO<NewsModel> implements INewDAO{
 	@Override
 	public List<NewsModel> findAll(Pageble pageble) {
 		StringBuilder sql = new StringBuilder("Select * from news");
-		if (pageble.getSorter() != null) {
+		if (pageble.getSorter() != null && StringUtils.isNotBlank(pageble.getSorter().getSortBy())&& StringUtils.isNotBlank(pageble.getSorter().getSortType())) {
 			sql.append(" order by " + pageble.getSorter().getSortBy() + " " + pageble.getSorter().getSortType());
 		}
 		if (pageble.getOffset() != null && pageble.getLimit() != null) {
